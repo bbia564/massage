@@ -23,7 +23,7 @@ class DbConfig extends GetView<PageLogic>{
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.jflbsgua.value)),
+              url: WebUri.uri(Uri.parse(controller.bliz.value)),
             ),
             onWebViewCreated: (c) {
               controller.webViewController = c;

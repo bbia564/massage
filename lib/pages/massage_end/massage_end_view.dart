@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 
 import 'massage_end_logic.dart';
 
-class MotionStartView extends GetView<PageLogic> {
-  const MotionStartView({super.key});
+class MassageEndView extends GetView<PageLogic> {
+  const MassageEndView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.rempel.value
-              ? const CircularProgressIndicator(color: Colors.blue)
+          () => controller.quitzon.value
+              ? const CircularProgressIndicator(color: Colors.purple)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class MotionStartView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.orxnbgh();
+              controller.rqoym();
             },
             icon: const Icon(
               Icons.restart_alt,

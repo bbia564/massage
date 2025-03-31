@@ -6,12 +6,16 @@ import 'package:my_massage/pages/feedback/feedback_binding.dart';
 import 'package:my_massage/pages/feedback/feedback_view.dart';
 import 'package:my_massage/pages/massage_details/massage_details_binding.dart';
 import 'package:my_massage/pages/massage_details/massage_details_view.dart';
+import 'package:my_massage/pages/massage_end/massage_end_binding.dart';
+import 'package:my_massage/pages/massage_end/massage_end_view.dart';
 import 'package:my_massage/pages/massage_main/massage_main_binding.dart';
 import 'package:my_massage/pages/massage_main/massage_main_view.dart';
 import 'package:my_massage/pages/massage_setting/massage_setting_binding.dart';
 import 'package:my_massage/pages/massage_setting/massage_setting_view.dart';
 import 'package:my_massage/pages/no_network/no_network_binding.dart';
 import 'package:my_massage/pages/no_network/no_network_view.dart';
+
+import 'db_massage/db_config.dart';
 
 Color primaryColor = const Color(0xff7b34fe);
 Color bgColor = Colors.white;
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Massage,
-      initialRoute: '/massageMain',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -88,16 +92,24 @@ class MyApp extends StatelessWidget {
 
 List<GetPage<dynamic>> Massage = [
   GetPage(
+      name: '/',
+      page: () => const MassageEndView(),
+      binding: MassageEndBinding()),
+  GetPage(
       name: '/reload',
       page: () => NoNetworkPage(),
       binding: NoNetworkBinding()),
+  GetPage(
+    name: '/init',
+    page: () => const DbConfig(),
+  ),
   GetPage(
       name: '/massageMain',
       page: () => const MassageMainPage(),
       binding: MassageMainBinding()),
   GetPage(
       name: '/massageSetting',
-      page: () => MassageSettingPage(),
+      page: () => const MassageSettingPage(),
       binding: MassageSettingBinding()),
   GetPage(
       name: '/massageDetails',
